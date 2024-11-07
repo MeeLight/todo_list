@@ -1,0 +1,11 @@
+public
+.vscode
+*.md
+*.txt
+*.json
+*.
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+LICENSE.md
+LICENSE
