@@ -1,7 +1,11 @@
-import react from '@vitejs/plugin-react-swc'
 import { resolve } from 'path'
 import { defineConfig, loadEnv } from 'vite'
-import { type UserConfig, type UserConfigExport } from 'vite'
+
+// Plugins
+import react from '@vitejs/plugin-react-swc'
+
+// Types and Interfaces
+import type { UserConfig, UserConfigExport } from 'vite'
 
 export default ({ mode }: UserConfig): UserConfigExport => {
   const env = { ...process.env, ...loadEnv(<string>mode, process.cwd()) }
@@ -21,12 +25,15 @@ export default ({ mode }: UserConfig): UserConfigExport => {
     },
     resolve: {
       alias: {
-        '@assets': resolve(__dirname, './src/assets'),
-        '@components': resolve(__dirname, './src/components'),
-        '@layouts': resolve(__dirname, './src/layouts'),
-        '@router': resolve(__dirname, './src/router'),
         '@config': resolve(__dirname, './src/config'),
+        '@assets': resolve(__dirname, './src/assets'),
+        '@layouts': resolve(__dirname, './src/layouts'),
+        '@components': resolve(__dirname, './src/components'),
+        '@icons': resolve(__dirname, './src/icons'),
+        '@hooks': resolve(__dirname, './src/hooks'),
         '@pages': resolve(__dirname, './src/pages'),
+        '@stores': resolve(__dirname, './src/stores'),
+        '@helpers': resolve(__dirname, './src/helpers'),
         '@tests': resolve(__dirname, './tests')
       }
     }

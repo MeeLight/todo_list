@@ -1,15 +1,29 @@
-import { type ReactNode, type ComponentProps } from 'react'
-import styles from './styles'
+import type { ReactNode, ComponentProps } from 'react'
 
-interface ITitleProps {
-  children: ReactNode
+// Css
+import { css, type Styles } from './../../../styled-system/css'
+
+interface IProps {
+  className?: string
+  children: ReactNode | ReactNode[] | string
 }
 
-type TitleProps = ComponentProps<'h1'> & ITitleProps
+type Props = ComponentProps<'h1'> & IProps
 
-export default function Title({ children, ...rest }: TitleProps) {
+export default function Title({ className, children, ...rest }: Props) {
+  const styles: Styles = {
+    w: 'max-content',
+    textAlign: 'center',
+    fontSize: '3xl',
+    fontWeight: 'bold',
+    //outline: '1px solid black',
+    md: {
+      fontSize: '4xl'
+    }
+  }
+
   return (
-    <h1 className={styles} {...rest}>
+    <h1 className={`${css(styles)} ${className}`} {...rest}>
       {children}
     </h1>
   )
