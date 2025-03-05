@@ -4,7 +4,7 @@ import { defineConfig, loadEnv } from 'vite'
 // Plugins
 import react from '@vitejs/plugin-react-swc'
 
-// Types and Interfaces
+// Types and interfaces
 import type { UserConfig, UserConfigExport } from 'vite'
 
 export default ({ mode }: UserConfig): UserConfigExport => {
