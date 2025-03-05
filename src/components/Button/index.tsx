@@ -1,15 +1,27 @@
-import { type ReactNode, type ComponentProps } from 'react'
-import styles from './styles'
+import type { ReactNode, ComponentProps } from 'react'
 
-interface IButtonProps {
-  children: ReactNode
+// Css
+import { css } from './../../../styled-system/css'
+
+interface IProps {
+  children: ReactNode | ReactNode[] | string
 }
 
-type ButtonProps = ComponentProps<'button'> & IButtonProps
+type Props = ComponentProps<'button'> & IProps
 
-export default function Button({ children, ...rest }: ButtonProps) {
+export default function Button({ children, ...rest }: Props) {
+  const styles = css({
+    bgColor: 'blue.600',
+    color: 'gray.200',
+    px: '4',
+    py: '3',
+    cursor: 'pointer',
+    rounded: 'md',
+    _hover: { bg: 'blue.500' }
+  })
+
   return (
-    <button type='button' className={styles} {...rest}>
+    <button className={styles} {...rest}>
       {children}
     </button>
   )
