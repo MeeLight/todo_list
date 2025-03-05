@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-
 // React Router
 import { BrowserRouter, Routes, Route } from 'react-router'
 
@@ -13,8 +11,6 @@ import ConfigPage from '@pages/private/Config'
 import NotFoundPage from '@pages/public/404'
 
 export default function ReactRouter() {
-  useEffect(() => {}, [])
-
   return (
     <BrowserRouter>
       <Routes>
